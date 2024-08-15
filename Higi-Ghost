@@ -1,0 +1,68 @@
+const schema = {
+    Clientes: {
+        id_cliente: 'INT, PK, auto-increment',
+        nome: 'VARCHAR',
+        email: 'VARCHAR',
+        telefone: 'VARCHAR',
+        endereco: 'VARCHAR',
+        cidade: 'VARCHAR',
+        estado: 'VARCHAR',
+        cep: 'VARCHAR',
+        pais: 'VARCHAR'
+    },
+    Produtos: {
+        id_produto: 'INT, PK, auto-increment',
+        nome: 'VARCHAR',
+        descricao: 'TEXT',
+        preco: 'DECIMAL',
+        quantidade_estoque: 'INT',
+        id_categoria: 'INT, FK'
+    },
+    Categorias: {
+        id_categoria: 'INT, PK, auto-increment',
+        nome: 'VARCHAR',
+        descricao: 'TEXT'
+    },
+    Pedidos: {
+        id_pedido: 'INT, PK, auto-increment',
+        id_cliente: 'INT, FK',
+        data_pedido: 'DATETIME',
+        valor_total: 'DECIMAL',
+        id_metodo_envio: 'INT, FK',
+        status: 'VARCHAR'
+    },
+    Itens_Pedido: {
+        id_item_pedido: 'INT, PK, auto-increment',
+        id_pedido: 'INT, FK',
+        id_produto: 'INT, FK',
+        quantidade: 'INT',
+        preco: 'DECIMAL'
+    },
+    Metodos_Envio: {
+        id_metodo_envio: 'INT, PK, auto-increment',
+        nome: 'VARCHAR',
+        descricao: 'TEXT',
+        custo: 'DECIMAL'
+    },
+    Idiomas: {
+        codigo_idioma: 'VARCHAR, PK',
+        nome_idioma: 'VARCHAR'
+    },
+    Traducoes_Produto: {
+        id_traducao_produto: 'INT, PK, auto-increment',
+        id_produto: 'INT, FK',
+        codigo_idioma: 'VARCHAR, FK',
+        nome_traduzido: 'VARCHAR',
+        descricao_traduzida: 'TEXT'
+    },
+    Pagamentos: {
+        id_pagamento: 'INT, PK, auto-increment',
+        id_pedido: 'INT, FK',
+        data_pagamento: 'DATETIME',
+        valor: 'DECIMAL',
+        metodo_pagamento: 'VARCHAR',
+        status: 'VARCHAR'
+    }
+};
+
+console.log(schema);
